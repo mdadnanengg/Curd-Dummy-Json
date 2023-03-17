@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "name": "Mohammad Adnan",
+      "age": "18",
+      "address": "Nanded",
+      "id": "edda0417-ee24-44b8-89dc-400deaf5fcbd"
+    },
+    {
+      "name": "Anas Momin",
+      "age": "22",
+      "address": "Koltaka",
+      "id": "1b152267-7623-48c7-a858-40b16d468ac3"
+    },
+    {
+      "name": "Md Usama",
+      "age": "23",
+      "address": "Hydrabad",
+      "id": "2d17eb75-362e-4fe7-ad1f-8fb751a38dc0"
+    }
+  ]
+}
