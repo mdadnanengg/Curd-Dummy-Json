@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "name": "Mohammad Adnan",
-      "age": "18",
+      "name": "Md Adnan",
+      "age": "21",
       "address": "Nanded",
       "id": "edda0417-ee24-44b8-89dc-400deaf5fcbd"
     },
@@ -13,10 +13,10 @@
       "id": "1b152267-7623-48c7-a858-40b16d468ac3"
     },
     {
-      "name": "Md Usama",
+      "name": "Md Mustafa",
       "age": "23",
-      "address": "Hydrabad",
-      "id": "2d17eb75-362e-4fe7-ad1f-8fb751a38dc0"
+      "address": "Aurangabad",
+      "id": "ede3177d-3f54-475c-82ab-d15605fc486b"
     }
   ]
 }

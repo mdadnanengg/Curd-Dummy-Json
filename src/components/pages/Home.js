@@ -1,18 +1,20 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Button, Container, Table } from 'react-bootstrap'
+import { Button, Table } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-import { getAllUser } from '../ApiService'
+import { getAllUser } from '../../ApiService'
+import { FaEye, FaEdit, FaTrash } from 'react-icons/fa';
 
 function Home() {
 
   const [userData, setUserData] = useState([])
   const [refetch, setRefetch] = useState([])
 
-  getAllUser().then((data)=>{console.log(data)})
+  // getAllUser().then((data)=>{console.log(data)})
 
   useEffect(() => {
-    axios.get("http://localhost:4000/users").then((res) => { setUserData(res.data) }).catch((err) => alert(err));
+    // axios.get("http://localhost:4000/users")
+    getAllUser().then((data) => { setUserData(data) }).catch((err) => alert(err));
     // console.log(data)
   }, [refetch])
 
@@ -26,9 +28,9 @@ function Home() {
       .then(() => {
         setRefetch(!refetch ? true : false);
         console.log(!refetch);
-        alert("user deleted succesfully");
+        alert("User deleted succesfully");
       })
-      .catch(() => alert("something went wrong"));
+      .catch(() => alert("Something went wrong"));
   }
 
   const handleView = (id) => {
@@ -59,15 +61,15 @@ function Home() {
           </thead>
           <tbody>
             {userData.map((value, index) => {
-              return <tr>
+              return <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{value.name}</td>
                 <td>{value.age}</td>
                 <td>{value.address}</td>
                 <td>
-                  <Button variant="primary" onClick={() => {handleView(value.id);}}>View</Button> {' '}
-                  <Button variant="warning" onClick={() => {handleEdit(value.id);}}>Edit</Button> {' '}
-                  <Button variant="danger" onClick={() => {handleDelete(value.id);}}>delete</Button>
+                  <Button variant="light" style={{marginRight:"10px"}} onClick={() => {handleView(value.id);}}> <FaEye /> </Button> {' '}
+                  <Button variant="warning" style={{marginRight:"10px"}} onClick={() => {handleEdit(value.id);}}> <FaEdit /> </Button> {' '}
+                  <Button variant="danger" onClick={() => {handleDelete(value.id);}}> <FaTrash /> </Button>
                 </td>
               </tr>
             })}

@@ -29,17 +29,24 @@ function CreateUser() {
   console.log(formData)
 
 
-
   return (
     <>
-      <center>
-        <h1 className="mt-4">Create User</h1>
-        <Form className="w-50" onSubmit={handleSubmit(onSubmit)}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+        <h1
+        style={{
+          backgroundColor: "#66bb6a",
+          height: "70px",
+          margin: "7px 7px 0px 7px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        >Create User</h1>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form.Group className="m-2" controlId="formBasicEmail">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="enter your name"
+              placeholder="Name *"
               {...register("name", {
                 required: {
                   value: true,
@@ -49,16 +56,20 @@ function CreateUser() {
                   value: 3,
                   message: "character length not less then 3",
                 },
+                pattern: {
+                  value: /^[a-zA-Z ]*$/,
+                  message: "Wrong Input Taken Please Type Correct Input"
+                }
               })}
             />
             <Form.Text className="text-danger">
               {errors.name && <span>{errors.name?.message}</span>}
             </Form.Text>
             <br />
-            <Form.Label className="mt-2">Age</Form.Label>
+            <Form.Label className="mt-1">Age</Form.Label>
             <Form.Control
               type="text"
-              placeholder="enter your age"
+              placeholder="Age *"
               {...register("age", {
                 required: { value: true, message: "This field is required" },
                 min: {
@@ -69,16 +80,20 @@ function CreateUser() {
                   value: 99,
                   message: "age not be grater than 99",
                 },
+                pattern: {
+                  value: /^\S[0-9]{0,3}$/,
+                  message: "Invalid Input please type Correct"
+                }
               })}
             />
             <Form.Text className="text-danger">
               {errors.age && <span>{errors.age?.message}</span>}
             </Form.Text>
             <br />
-            <Form.Label className="mt-2">Address</Form.Label>
+            <Form.Label className="mt-1">Address</Form.Label>
             <Form.Control
               type="text"
-              placeholder="enter your address"
+              placeholder="Address *"
               {...register("address", {
                 required: {
                   value: true,
@@ -88,17 +103,20 @@ function CreateUser() {
                   value: 20,
                   message: "character length not grater then 20",
                 },
+                pattern: {
+                  value: /^[a-zA-Z ]*$/,
+                  message: "Wrong Input Taken Please Type Correct Input"
+                }
               })}
             />
             <Form.Text className="text-danger">
               {errors.address && <span>{errors.address?.message}</span>}
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" >
             Submit
           </Button>
         </Form>
-      </center>
     </>
   );
 }
